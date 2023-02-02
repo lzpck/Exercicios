@@ -9,10 +9,10 @@
 </head>
 
 <body>
-    <p id="timer">30</p>
+    <p id="tempo">30</p>
 
     <style>
-        #timer {
+        #tempo {
             font-size: 36px;
             text-align: center;
             font-family: Verdana;
@@ -20,16 +20,16 @@
     </style>
 
     <script>
-        const timerDisplay = document.querySelector("#timer");
-        let timeLeft = 30;
+        const tempoDisplay = document.querySelector("#tempo");
+        let tempoRestante = 30;
 
         setTimeout(function () {
-            const countDown = setInterval(function () {
-                timeLeft--;
-                timerDisplay.innerHTML = timeLeft;
+            const contagemRegressiva = setInterval(function () {
+                tempoRestante--;
+                tempoDisplay.innerHTML = tempoRestante;
 
-                if (timeLeft === 0) {
-                    clearInterval(countDown);
+                if (tempoRestante === 0) {
+                    clearInterval(contagemRegressiva);
                 }
             }, 1000);
         }, 5000);
