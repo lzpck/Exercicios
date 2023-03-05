@@ -18,12 +18,14 @@ function fakeAPIFilmes(idRequisição) {
     });
 }
 
-const idsRequisicao = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+async function imprimirFilmes() {
+    const idsRequisicao = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-Promise.all(idsRequisicao.map(id => fakeAPIFilmes(id)))
-    .then(respostas => {
-        respostas.forEach((resposta, indice) => {
-            console.log(`Requisição ${indice+1}: ${resposta}`);
-        });
-    })
+    for (const id of idsRequisicao) {
+        const resposta = await fakeAPIFilmes(id);
+        console.log(`Requisição ${id}: ${resposta}`);
+    }
+}
+
+imprimirFilmes()
     .catch(erro => console.error(erro));
